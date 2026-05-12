@@ -1,0 +1,355 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --c-navy:   #0D2D6B;
+  --c-green:  #1A9B3C;
+  --c-gold:   #F5C800;
+  --c-sky:    #47B4E8;
+  --c-ink:    #0A0F1E;
+  --c-muted:  #5B6478;
+  --c-border: #E6E8F0;
+  --c-bg:     #F7F8FC;
+  --c-danger: #DC2626;
+
+  /* legacy aliases used by SobrePage and Figma Make exports */
+  --ceait-navy:       #0D2D6B;
+  --ceait-navy-dark:  #061944;
+  --ceait-green:      #1A9B3C;
+  --ceait-green-dark: #0F5E24;
+  --ceait-yellow:     #F5C800;
+  --ceait-bg:         #F7F8FC;
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { font-family: 'Inter', 'Barlow', sans-serif; background: #F7F8FC; color: #0A0F1E; line-height: 1.65; }
+  img { max-width: 100%; display: block; }
+  button { cursor: pointer; }
+}
+
+@layer components {
+  .font-cond { font-family: 'Barlow Condensed', sans-serif; }
+
+  /* Hero gradient background */
+  .bg-hero { background: linear-gradient(135deg, #0D2D6B 0%, #071a42 50%, #0a2e12 100%); }
+
+  /* Section dot pattern — works both as a direct element and via ::before */
+  .dot-pattern {
+    background-image: radial-gradient(rgba(255,255,255,0.4) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  /* Decorative arc from logo */
+  .arc-decoration {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.06);
+    pointer-events: none;
+  }
+
+  /* Section label */
+  .sec-label {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1A9B3C;
+    background: #e6f7eb;
+    padding: 0.25rem 0.85rem;
+    border-radius: 99px;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Section heading */
+  .sec-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    color: #0D2D6B;
+  }
+
+  /* Gradient line */
+  .sec-line {
+    width: 48px;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #1A9B3C, #F5C800);
+    margin-bottom: 1.5rem;
+  }
+
+  /* White card */
+  .card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+  .card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.12); transform: translateY(-3px); }
+
+  /* Primary button */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #F5C800;
+    color: #0D2D6B;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.8rem 1.75rem;
+    border-radius: 10px;
+    border: none;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover { background: #c9a400; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245,200,0,0.35); }
+
+  .btn-navy {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #0D2D6B;
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.8rem 1.75rem;
+    border-radius: 10px;
+    border: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-navy:hover { background: #071a42; transform: translateY(-2px); }
+
+  .btn-green {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #1A9B3C;
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    border: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-green:hover { background: #0f6326; transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.8rem 1.75rem;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.4);
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
+
+  /* CRUD toolbar */
+  .crud-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: #f7f8fc;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+
+  /* Status pills */
+  .pill-active   { background: #dcfce7; color: #166534; font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.7rem; border-radius: 99px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .pill-pending  { background: #fef9c3; color: #854d0e; font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.7rem; border-radius: 99px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .pill-done     { background: #f3f4f6; color: #6b7280; font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.7rem; border-radius: 99px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* Elevated card */
+  .card-elev {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+  .card-elev:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.12); }
+
+  /* Headline font shorthand */
+  .font-headline { font-family: 'Barlow Condensed', sans-serif; }
+
+  /* Modal overlay */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(10,15,30,0.5);
+    backdrop-filter: blur(4px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 1rem;
+  }
+  .modal-box {
+    background: white;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 540px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.2);
+    animation: modal-in 0.2s ease;
+  }
+  @keyframes modal-in {
+    from { opacity: 0; transform: scale(0.96) translateY(12px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0); }
+  }
+
+  /* Form inputs */
+  .form-input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #0A0F1E;
+    background: white;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-input:focus { border-color: #1A9B3C; }
+  .form-label {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #64748b;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, #1A9B3C 0%, #47B4E8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #F5C800 0%, #ff9500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+  }
+
+  /* Card accent variants */
+  .card-accent-green { border-top: 3px solid #1A9B3C; }
+  .card-accent-gold  { border-top: 3px solid #F5C800; }
+  .card-accent-navy  { border-top: 3px solid #0D2D6B; }
+  .card-accent-sky   { border-top: 3px solid #47B4E8; }
+
+  /* Stat number */
+  .stat-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  /* Hero badge */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 0.4rem 1rem;
+    border-radius: 99px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  /* Divider wave */
+  .section-divider {
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Glow effect */
+  .glow-green { box-shadow: 0 0 40px rgba(26,155,60,0.25); }
+  .glow-gold  { box-shadow: 0 0 40px rgba(245,200,0,0.3); }
+
+  /* Background radial gradient overlay */
+  .bg-radial-green {
+    background: radial-gradient(ellipse at top right, rgba(26,155,60,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at bottom left, rgba(71,180,232,0.1) 0%, transparent 60%);
+  }
+  .bg-radial-navy {
+    background: radial-gradient(ellipse at top right, rgba(71,180,232,0.12) 0%, transparent 60%),
+                linear-gradient(180deg, #0D2D6B 0%, #071a42 100%);
+  }
+
+  /* Scroll fade-in animation */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up { animation: fade-up 0.6s ease forwards; }
+  .animate-delay-1 { animation-delay: 0.1s; }
+  .animate-delay-2 { animation-delay: 0.2s; }
+  .animate-delay-3 { animation-delay: 0.3s; }
+
+  /* Highlight underline decoration */
+  .highlight-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .highlight-underline::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 100%; height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #1A9B3C, #F5C800);
+  }
+
+  /* Numbered badge */
+  .num-badge {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0D2D6B, #1A9B3C);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    color: white;
+    flex-shrink: 0;
+  }
+}
