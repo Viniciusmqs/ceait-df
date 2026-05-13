@@ -20,7 +20,7 @@ export default function Footer({ navigate }: Props) {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <img src="/logo.svg" alt="CEAIT" className="h-14 w-14 rounded-full object-cover ring-2 ring-white/10" />
+              <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="CEAIT" className="h-14 w-14 rounded-full object-cover ring-2 ring-white/10" />
               <div>
                 <p className="font-cond font-black text-xl uppercase tracking-widest">CEAIT</p>
                 <p className="text-sm text-white/50 leading-tight">Centro Esportivo<br />Arco-Íris Taguatinga</p>

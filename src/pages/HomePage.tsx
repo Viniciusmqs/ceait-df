@@ -66,7 +66,7 @@ export default function HomePage({ navigate }: Props) {
             }}
           >
             <img
-              src="/logo.svg"
+              src={`${import.meta.env.BASE_URL}logo.svg`}
               alt="CEAIT"
               className="w-56 h-56 rounded-full object-contain"
             />

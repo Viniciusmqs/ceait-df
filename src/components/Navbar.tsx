@@ -35,7 +35,7 @@ export default function Navbar({ page, navigate }: Props) {
           <button onClick={() => go('home')} className="flex items-center gap-3 group">
             <div className="relative">
               <img
-                src="/logo.svg"
+                src={`${import.meta.env.BASE_URL}logo.svg`}
                 alt="CEAIT"
                 className="h-10 w-10 rounded-full object-cover ring-2 ring-[#0D2D6B]/10 group-hover:ring-[#1A9B3C]/40 transition-all"
               />
